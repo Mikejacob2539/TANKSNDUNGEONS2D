@@ -179,7 +179,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void ShootProjectiles(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && GameManager.isPaused == false)
         {
             if (shotTimer >= timeToShoot)
             {
@@ -196,9 +196,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void DashAbility(InputAction.CallbackContext context)
     {
-        if (context.performed && healthManager.CanDash() && isDashing == false && !GameManager.isPaused && isDashTrailActive == false)
+        if (context.performed && healthManager.CanDash() && isDashing == false && GameManager.isPaused == false)
         {
-            isDashTrailActive = true;
             StartCoroutine(DashCoroutine());
             Debug.Log("Dashing...");
         }
@@ -239,6 +238,7 @@ public class PlayerMovement : MonoBehaviour
 
         // --- End the dash ---
         rb2d.linearVelocity = Vector2.zero; // Stop instantly
+        isDashTrailActive = false;
         healthManager.ReduceEnergy(dashEnergyCost);
         isDashing = false;
         isVisible = true;

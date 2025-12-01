@@ -125,7 +125,7 @@ public class EnemySpawnner : MonoBehaviour
                                 else
                                 {
                                     enemy.TryGetComponent<EnemyController>(out EnemyController tank);
-                                    tank.UpGradeEnemy(waveNumber + 1);
+                                    tank.UpGradeEnemy(waveNumber * 5);
                                 }
 
                                 enemiesSpawnedInWave++;

@@ -538,6 +538,9 @@ public class EnemyController : MonoBehaviour
 
     public void UpGradeEnemy(int upPesent)
     {
+        Debug.Log($"Before {health}");
+        Debug.Log($"Before {enemyDmg}");
+        Debug.Log($"Before {speed}");
         int percent = 100;
         var value = (upPesent / percent);
         health += (value * health);

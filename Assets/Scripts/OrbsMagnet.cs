@@ -55,7 +55,7 @@ public class OrbsMagnet : MonoBehaviour
         {
             if (health.healthManager.GetHealth() < 1)
             {
-                health.healthManager.Heal(Random.Range(10, 50));
+                health.healthManager.Heal(Random.Range(10, 20));
             }
         }
         else if (CompareTag("Shield"))
@@ -64,7 +64,7 @@ public class OrbsMagnet : MonoBehaviour
         }
         else if (CompareTag("Currency"))
         {
-            coinsCollected?.Invoke(Random.Range(2, 5));
+            coinsCollected?.Invoke(Random.Range(1, 2));
         }
 
         Destroy(gameObject, 0.5f);
